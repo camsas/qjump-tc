@@ -13,9 +13,8 @@ The kernel module supports several paramters.
 - pXrate (int):     sets the the "f" value for QJump level X. Value is set as an integer multiple of the base rate given by bytesq/timeq. For example, setting p2rate to 5 indicates that the third highest priority level (p2) will receive 5x the number of bytes per epoch the highest prioirty (p0).
 - autolass (bool):  turns on the "autoclassifier" which degrades an application until it reaches the right QJump level
 
-To check that the module has inserted properly use dmesg. eg:
-dmesg
-
+To check that the module has inserted properly use dmesg. eg:  
+$ dmesg  
 [ 2379.582475] sch_qjump: module license 'BSD' taints kernel.  
 [ 2379.582479] Disabling lock debugging due to kernel taint  
 [ 2379.583112] QJump[4]: Init module  
@@ -43,16 +42,12 @@ dmesg
 After inserting the module, you can bind qjump to an ethernet port using TC. eg:  
 sudo tc qdisc add dev eth0 root qjump
 
-You can then check that the module is working e.g:
-dmesg
-
+You can then check that the module is working e.g:  
+$ dmesg  
 [ 2519.047377] QJump[4]: Jump[4]: Delaying 279940 cycles per network tick (99us)  
 [ 2519.047382] QJump[4]: Queue 0 = @ 10Mb/s   
 [ 2519.047383] qjump[4]: Init fifo limit=128  
 [ 2519.047384] Bands= 1  
 
-To remove as a TC module:
+To remove as a TC module:  
 sudo tc qdisc del dev eth0 root qjump
-
-
-
