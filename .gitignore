@@ -3,27 +3,13 @@
 *.ko
 *.obj
 *.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
+*.o
+*.log
+*.cmd
 *.so
-*.so.*
-*.dylib
+*.mod.c
+.settings
+Module.symvers
+.tmp*
+modules.order
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex

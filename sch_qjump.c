@@ -33,6 +33,7 @@
 #include <linux/time.h>
 #include <linux/netdevice.h>
 #include <linux/moduleparam.h>
+#include <net/sock.h>
 
 #define SEC2NS (1000 * 1000 * 1000)
 #define SEC2US (1000 * 1000)
@@ -162,7 +163,7 @@ struct Qdisc_ops qjump_fifo_qdisc_ops __read_mostly = {
         .dequeue    =   qdisc_dequeue_head,
         .peek       =   qdisc_peek_head,
         .drop       =   qdisc_queue_drop,
-        .init       =   fifo_init,
+        .init       =   qfifo_init,
         .reset      =   qdisc_reset_queue,
         .change     =   qfifo_init,
 };
